@@ -20,7 +20,7 @@ Add the plugin to `opencode.json`:
 }
 ```
 
-Before npm publication, use an absolute checkout path in `plugins`, such as `/path/to/opencode-provider-inco`. Published packages load through the same v2 plugin contract; `/server` remains available as an explicit package entry.
+For a local checkout, use an absolute path in `plugins`, such as `/path/to/opencode-provider-inco`. Published packages load through the same v2 plugin contract; `/server` remains available as an explicit package entry.
 
 Requires Node.js 22.19 or newer. This integration targets OpenCode v2.1.4+.
 
