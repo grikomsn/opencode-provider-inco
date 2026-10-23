@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/cover.svg" alt="Inco provider for opencode" width="800">
+  <img src="assets/cover.jpg" alt="Inco provider for opencode" width="800">
 </p>
 
 # opencode-provider-inco
