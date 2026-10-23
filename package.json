@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
   "name": "opencode-provider-inco",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Inco AI provider for OpenCode v2 with live model discovery",
   "type": "module",
   "license": "MIT",
