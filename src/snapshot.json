@@ -1,0 +1,307 @@
+{
+  "object": "list",
+  "data": [
+    {
+      "id": "deepseek-v4.1-flash",
+      "object": "model",
+      "created": 1790576061,
+      "owned_by": "inco",
+      "name": "DeepSeek V4.1 Flash",
+      "mode": "standard",
+      "context_length": 1048576,
+      "pricing": {
+        "input": 0.3,
+        "cached_input": 0.006,
+        "output": 1.2
+      },
+      "capabilities": {
+        "reasoning_effort": true
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "license": "MIT",
+      "license_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017/blob/main/LICENSE",
+      "model_card_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
+      "parameters": 552000000000
+    },
+    {
+      "id": "deepseek-v4.1-flash:fast",
+      "object": "model",
+      "created": 1789099394,
+      "owned_by": "inco",
+      "name": "DeepSeek V4.1 Flash (Fast)",
+      "mode": "fast",
+      "context_length": 1048576,
+      "pricing": {
+        "input": 0.6,
+        "cached_input": 0.012,
+        "output": 2.4
+      },
+      "capabilities": {
+        "reasoning_effort": true
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "license": "MIT",
+      "license_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017/blob/main/LICENSE",
+      "model_card_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
+      "parameters": 552000000000
+    },
+    {
+      "id": "glm-5.3",
+      "object": "model",
+      "created": 1787467037,
+      "owned_by": "inco",
+      "name": "GLM 5.3",
+      "mode": "standard",
+      "context_length": 1048576,
+      "pricing": {
+        "input": 1.4,
+        "cached_input": 0.26,
+        "output": 4.4
+      },
+      "capabilities": {
+        "reasoning_effort": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "license": "GLM-5.3 License",
+      "license_url": "https://huggingface.co/zai-org/GLM-5.3/blob/main/LICENSE",
+      "model_card_url": "https://huggingface.co/zai-org/GLM-5.3",
+      "parameters": 744000000000
+    },
+    {
+      "id": "glm-5.3-flash",
+      "object": "model",
+      "created": 1790576061,
+      "owned_by": "inco",
+      "name": "GLM 5.3 Flash",
+      "mode": "standard",
+      "context_length": 1048576,
+      "pricing": {
+        "input": 0.15,
+        "cached_input": 0.03,
+        "output": 0.5
+      },
+      "capabilities": {
+        "reasoning_effort": true
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image",
+          "video"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "license": "MIT",
+      "license_url": "https://huggingface.co/zai-org/GLM-5.3-Flash/blob/main/LICENSE",
+      "model_card_url": "https://huggingface.co/zai-org/GLM-5.3-Flash",
+      "parameters": 320000000000
+    },
+    {
+      "id": "glm-5.3-flash:fast",
+      "object": "model",
+      "created": 1788137086,
+      "owned_by": "inco",
+      "name": "GLM 5.3 Flash (Fast)",
+      "mode": "fast",
+      "context_length": 1048576,
+      "pricing": {
+        "input": 0.3,
+        "cached_input": 0.06,
+        "output": 1
+      },
+      "capabilities": {
+        "reasoning_effort": true
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image",
+          "video"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "license": "MIT",
+      "license_url": "https://huggingface.co/zai-org/GLM-5.3-Flash/blob/main/LICENSE",
+      "model_card_url": "https://huggingface.co/zai-org/GLM-5.3-Flash",
+      "parameters": 320000000000
+    },
+    {
+      "id": "glm-5.3:fast",
+      "object": "model",
+      "created": 1787990964,
+      "owned_by": "inco",
+      "name": "GLM 5.3 (Fast)",
+      "mode": "fast",
+      "context_length": 1048576,
+      "pricing": {
+        "input": 2.8,
+        "cached_input": 0.52,
+        "output": 8.8
+      },
+      "capabilities": {
+        "reasoning_effort": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "license": "GLM-5.3 License",
+      "license_url": "https://huggingface.co/zai-org/GLM-5.3/blob/main/LICENSE",
+      "model_card_url": "https://huggingface.co/zai-org/GLM-5.3",
+      "parameters": 744000000000
+    },
+    {
+      "id": "kimi-k3",
+      "object": "model",
+      "created": 1790294854,
+      "owned_by": "inco",
+      "name": "Kimi K3",
+      "mode": "standard",
+      "context_length": 1048576,
+      "pricing": {
+        "input": 3,
+        "cached_input": 0.3,
+        "output": 15
+      },
+      "capabilities": {
+        "reasoning_effort": true
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "license": "Kimi K3 License",
+      "license_url": "https://huggingface.co/moonshotai/Kimi-K3/blob/main/LICENSE",
+      "model_card_url": "https://huggingface.co/moonshotai/Kimi-K3",
+      "parameters": 2800000000000
+    },
+    {
+      "id": "kimi-k3:fast",
+      "object": "model",
+      "created": 1787525277,
+      "owned_by": "inco",
+      "name": "Kimi K3 (Fast)",
+      "mode": "fast",
+      "context_length": 1048576,
+      "pricing": {
+        "input": 6,
+        "cached_input": 0.6,
+        "output": 30
+      },
+      "capabilities": {
+        "reasoning_effort": true
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "license": "Kimi K3 License",
+      "license_url": "https://huggingface.co/moonshotai/Kimi-K3/blob/main/LICENSE",
+      "model_card_url": "https://huggingface.co/moonshotai/Kimi-K3",
+      "parameters": 2800000000000
+    },
+    {
+      "id": "minimax-m3.1-flash",
+      "object": "model",
+      "created": 1792407614,
+      "owned_by": "inco",
+      "name": "MiniMax M3.1 Flash",
+      "mode": "standard",
+      "context_length": 1048576,
+      "pricing": {
+        "input": 0.15,
+        "cached_input": 0.03,
+        "output": 0.6
+      },
+      "capabilities": {
+        "reasoning_effort": true
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image",
+          "video"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "license": "MiniMax Community License",
+      "license_url": "https://huggingface.co/MiniMaxAI/MiniMax-M3.1-Flash/blob/main/LICENSE",
+      "model_card_url": "https://huggingface.co/MiniMaxAI/MiniMax-M3.1-Flash",
+      "parameters": 428000000000
+    },
+    {
+      "id": "minimax-m3.1-flash:fast",
+      "object": "model",
+      "created": 1792734250,
+      "owned_by": "inco",
+      "name": "MiniMax M3.1 Flash (Fast)",
+      "mode": "fast",
+      "context_length": 1048576,
+      "pricing": {
+        "input": 0.3,
+        "cached_input": 0.06,
+        "output": 1.2
+      },
+      "capabilities": {
+        "reasoning_effort": true
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image",
+          "video"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "license": "MiniMax Community License",
+      "license_url": "https://huggingface.co/MiniMaxAI/MiniMax-M3.1-Flash/blob/main/LICENSE",
+      "model_card_url": "https://huggingface.co/MiniMaxAI/MiniMax-M3.1-Flash",
+      "parameters": 428000000000
+    }
+  ]
+}

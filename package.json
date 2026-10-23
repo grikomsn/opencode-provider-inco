@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "opencode-provider-inco",
+  "version": "0.1.0",
+  "description": "Inco AI provider for OpenCode v2 with live model discovery",
+  "type": "module",
+  "license": "MIT",
+  "keywords": [
+    "inco",
+    "inco-ai",
+    "ai-provider",
+    "opencode-plugin"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grikomsn/opencode-provider-inco.git"
+  },
+  "bugs": {
+    "url": "https://github.com/grikomsn/opencode-provider-inco/issues"
+  },
+  "homepage": "https://github.com/grikomsn/opencode-provider-inco#readme",
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "files": [
+    "plugin.ts",
+    "index.ts",
+    "src/",
+    "assets/cover.svg",
+    "opencode.json",
+    "CHANGELOG.md",
+    "README.md",
+    "LICENSE"
+  ],
+  "exports": {
+    ".": "./plugin.ts",
+    "./server": "./plugin.ts",
+    "./library": "./index.ts"
+  },
+  "main": "./plugin.ts",
+  "scripts": {
+    "test": "node --experimental-strip-types --test test/*.test.ts",
+    "typecheck": "tsc --noEmit",
+    "check": "npm run typecheck && npm test",
+    "package": "npm pack --dry-run",
+    "changeset": "changeset",
+    "version": "changeset version && npm install --package-lock-only --ignore-scripts"
+  },
+  "peerDependencies": {
+    "@opencode/plugin": "^2.1.4",
+    "@opencode/schema": "^2.1.4"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.31.0",
+    "@types/node": "^24.0.0",
+    "typescript": "^6.0.3",
+    "@opencode/plugin": "^2.1.4",
+    "@opencode/ai": "^2.1.4",
+    "@opencode/schema": "^2.1.4"
+  }
+}
