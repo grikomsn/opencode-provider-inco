@@ -4,6 +4,8 @@
 
 Generated with the built-in image generation tool on 2026-10-24, then exported as JPEG at the sister projects' dimensions.
 
+`icon.png` reuses the Inco integration icon from [inco-copilot-chat](https://github.com/grikomsn/inco-copilot-chat/blob/main/assets/icon.png).
+
 References:
 
 - [Sister-project composition and client mark](https://github.com/grikomsn/opencode-provider-poolside/blob/main/assets/cover.jpg)
