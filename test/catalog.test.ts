@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { FALLBACK_MODELS, CatalogError, fetchCatalog, parseCatalog, reasoningEfforts } from "../src/catalog.ts";
+import { FALLBACK_MODELS, CatalogError, fetchCatalog, parseCatalog, reasoningEfforts, retryDelayMs, REASONING_EFFORTS } from "../src/catalog.ts";
 import { discoverModels, credentialScope, catalogPayload, type CatalogStorage } from "../src/discovery.ts";
 import { prepareRequest } from "../src/request.ts";
 
@@ -17,6 +17,8 @@ test("bundled public catalog has ten routes, verbatim fast IDs and bounded outpu
   assert.equal(FALLBACK_MODELS.length, 10);
   assert.equal(FALLBACK_MODELS.filter((m) => m.id.endsWith(":fast")).length, 5);
   assert.ok(FALLBACK_MODELS.every((m) => m.maxTokens === 16384 && m.toolCalling));
+  assert.ok(FALLBACK_MODELS.some((m) => m.id === "kimi-k3.1-pro:standard"));
+  assert.ok(!FALLBACK_MODELS.some((m) => m.id.startsWith("kimi-k3:")) && !FALLBACK_MODELS.some((m) => m.id === "kimi-k3"));
 });
 test("live metadata overrides profiles, preserves prices per million, and does not widen capabilities", () => {
   const [m] = parseCatalog(live);
@@ -33,6 +35,8 @@ test("explicit empty efforts and disabled reasoning stay disabled", () => {
   assert.deepEqual(reasoningEfforts("glm-5.3", ["high"], false), []);
   assert.deepEqual(reasoningEfforts("unknown", undefined, true), []);
   assert.deepEqual(reasoningEfforts("glm-5.3", undefined, true), ["low", "high", "max"]);
+  assert.deepEqual(reasoningEfforts("kimi-k3.1-pro:standard", undefined, true), REASONING_EFFORTS);
+  assert.deepEqual(reasoningEfforts("kimi-k3", undefined, true), []);
 });
 test("malformed entries, non-chat routes, deduplication, empty and invalid catalogs", () => {
   assert.deepEqual(parseCatalog({ data: [null, [], {}, { id: " " }, { id: "text-embedding-3" }] }), []);
@@ -84,6 +88,15 @@ test("only transient catalog HTTP failures retry; inference streaming is owned b
   calls = 0;
   await assert.rejects(fetchCatalog("a", undefined, async () => { calls++; return new Response(null, { status: 400 }); }));
   assert.equal(calls, 1);
+});
+test("Retry-After delays are bounded and never unbounded", () => {
+  assert.equal(retryDelayMs(0, "3600"), 5_000);
+  assert.equal(retryDelayMs(0, "2"), 2_000);
+  assert.equal(retryDelayMs(0, null), 250);
+  assert.equal(retryDelayMs(3, null), 2_000);
+  const date = new Date(Date.now() + 600_000).toUTCString();
+  assert.ok(retryDelayMs(0, date) <= 5_000);
+  assert.equal(retryDelayMs(0, "not-a-date"), 250);
 });
 test("wire requests clamp output and unsupported efforts without inventing controls", () => {
   const models = parseCatalog(live);
