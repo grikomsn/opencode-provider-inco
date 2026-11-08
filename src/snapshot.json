@@ -14,8 +14,23 @@
         "cached_input": 0.006,
         "output": 1.2
       },
-      "capabilities": {
-        "reasoning_effort": true
+      "reasoning": {
+        "modes": {
+          "supported": [
+            "enabled",
+            "disabled"
+          ],
+          "default": "enabled"
+        },
+        "efforts": {
+          "supported": [
+            "none",
+            "low",
+            "high",
+            "max"
+          ],
+          "default": "high"
+        }
       },
       "modalities": {
         "input": [
@@ -44,8 +59,23 @@
         "cached_input": 0.012,
         "output": 2.4
       },
-      "capabilities": {
-        "reasoning_effort": true
+      "reasoning": {
+        "modes": {
+          "supported": [
+            "enabled",
+            "disabled"
+          ],
+          "default": "enabled"
+        },
+        "efforts": {
+          "supported": [
+            "none",
+            "low",
+            "high",
+            "max"
+          ],
+          "default": "high"
+        }
       },
       "modalities": {
         "input": [
@@ -74,8 +104,21 @@
         "cached_input": 0.26,
         "output": 4.4
       },
-      "capabilities": {
-        "reasoning_effort": true
+      "reasoning": {
+        "modes": {
+          "supported": [
+            "enabled"
+          ],
+          "default": "enabled"
+        },
+        "efforts": {
+          "supported": [
+            "low",
+            "high",
+            "max"
+          ],
+          "default": "max"
+        }
       },
       "modalities": {
         "input": [
@@ -103,8 +146,21 @@
         "cached_input": 0.03,
         "output": 0.5
       },
-      "capabilities": {
-        "reasoning_effort": true
+      "reasoning": {
+        "modes": {
+          "supported": [
+            "enabled"
+          ],
+          "default": "enabled"
+        },
+        "efforts": {
+          "supported": [
+            "low",
+            "high",
+            "max"
+          ],
+          "default": "max"
+        }
       },
       "modalities": {
         "input": [
@@ -134,8 +190,21 @@
         "cached_input": 0.06,
         "output": 1
       },
-      "capabilities": {
-        "reasoning_effort": true
+      "reasoning": {
+        "modes": {
+          "supported": [
+            "enabled"
+          ],
+          "default": "enabled"
+        },
+        "efforts": {
+          "supported": [
+            "low",
+            "high",
+            "max"
+          ],
+          "default": "max"
+        }
       },
       "modalities": {
         "input": [
@@ -165,8 +234,21 @@
         "cached_input": 0.52,
         "output": 8.8
       },
-      "capabilities": {
-        "reasoning_effort": true
+      "reasoning": {
+        "modes": {
+          "supported": [
+            "enabled"
+          ],
+          "default": "enabled"
+        },
+        "efforts": {
+          "supported": [
+            "low",
+            "high",
+            "max"
+          ],
+          "default": "max"
+        }
       },
       "modalities": {
         "input": [
@@ -182,41 +264,11 @@
       "parameters": 744000000000
     },
     {
-      "id": "kimi-k3",
+      "id": "kimi-k3.1-pro:fast",
       "object": "model",
-      "created": 1790294854,
+      "created": 1793910869,
       "owned_by": "inco",
-      "name": "Kimi K3",
-      "mode": "standard",
-      "context_length": 1048576,
-      "pricing": {
-        "input": 3,
-        "cached_input": 0.3,
-        "output": 15
-      },
-      "capabilities": {
-        "reasoning_effort": true
-      },
-      "modalities": {
-        "input": [
-          "text",
-          "image"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "license": "Kimi K3 License",
-      "license_url": "https://huggingface.co/moonshotai/Kimi-K3/blob/main/LICENSE",
-      "model_card_url": "https://huggingface.co/moonshotai/Kimi-K3",
-      "parameters": 2800000000000
-    },
-    {
-      "id": "kimi-k3:fast",
-      "object": "model",
-      "created": 1787525277,
-      "owned_by": "inco",
-      "name": "Kimi K3 (Fast)",
+      "name": "Kimi K3.1 Pro (Fast)",
       "mode": "fast",
       "context_length": 1048576,
       "pricing": {
@@ -224,8 +276,21 @@
         "cached_input": 0.6,
         "output": 30
       },
-      "capabilities": {
-        "reasoning_effort": true
+      "reasoning": {
+        "modes": {
+          "supported": [
+            "enabled"
+          ],
+          "default": "enabled"
+        },
+        "efforts": {
+          "supported": [
+            "low",
+            "high",
+            "max"
+          ],
+          "default": "max"
+        }
       },
       "modalities": {
         "input": [
@@ -236,9 +301,36 @@
           "text"
         ]
       },
-      "license": "Kimi K3 License",
-      "license_url": "https://huggingface.co/moonshotai/Kimi-K3/blob/main/LICENSE",
-      "model_card_url": "https://huggingface.co/moonshotai/Kimi-K3",
+      "license": "Kimi K3.1-Pro License",
+      "license_url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro/blob/main/LICENSE",
+      "model_card_url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro",
+      "parameters": 2800000000000
+    },
+    {
+      "id": "kimi-k3.1-pro:standard",
+      "object": "model",
+      "created": 1794030431,
+      "owned_by": "inco",
+      "name": "Kimi K3.1 Pro (Standard)",
+      "mode": "standard",
+      "context_length": 1048576,
+      "pricing": {
+        "input": 3,
+        "cached_input": 0.3,
+        "output": 15
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "license": "Kimi K3.1-Pro License",
+      "license_url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro/blob/main/LICENSE",
+      "model_card_url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro",
       "parameters": 2800000000000
     },
     {
@@ -254,8 +346,25 @@
         "cached_input": 0.03,
         "output": 0.6
       },
-      "capabilities": {
-        "reasoning_effort": true
+      "reasoning": {
+        "modes": {
+          "supported": [
+            "enabled",
+            "adaptive",
+            "disabled"
+          ],
+          "default": "adaptive"
+        },
+        "efforts": {
+          "supported": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ],
+          "default": "max"
+        }
       },
       "modalities": {
         "input": [
@@ -285,8 +394,25 @@
         "cached_input": 0.06,
         "output": 1.2
       },
-      "capabilities": {
-        "reasoning_effort": true
+      "reasoning": {
+        "modes": {
+          "supported": [
+            "enabled",
+            "adaptive",
+            "disabled"
+          ],
+          "default": "adaptive"
+        },
+        "efforts": {
+          "supported": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ],
+          "default": "max"
+        }
       },
       "modalities": {
         "input": [

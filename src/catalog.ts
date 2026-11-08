@@ -17,12 +17,14 @@ export interface CatalogModel {
   cost?: { input: number; output: number; cacheRead?: number };
 }
 
-/** Verified per-route effort controls from inco-copilot-chat, 2026-10-23. */
+/** Verified per-route effort controls from inco-copilot-chat, 2026-11-06. */
 const PROFILES: Readonly<Record<string, readonly ReasoningEffort[]>> = {
   "deepseek-v4.1-flash": REASONING_EFFORTS,
   "deepseek-v4.1-flash:fast": REASONING_EFFORTS,
-  "kimi-k3": ["none", "low", "high", "max"],
-  "kimi-k3:fast": REASONING_EFFORTS,
+  // Kimi K3 retired on 2026-11-06 and left the public catalog on 2026-11-09;
+  // its replacement is Kimi K3.1 Pro (verified on :standard and :fast).
+  "kimi-k3.1-pro:standard": REASONING_EFFORTS,
+  "kimi-k3.1-pro:fast": REASONING_EFFORTS,
   // `none`, `minimal`, `medium`, and `xhigh` are rejected with HTTP 400.
   "glm-5.3": ["low", "high", "max"],
   "glm-5.3-flash": ["low", "high", "max"],
@@ -33,8 +35,22 @@ const PROFILES: Readonly<Record<string, readonly ReasoningEffort[]>> = {
   "minimax-m3.1-flash": REASONING_EFFORTS,
 };
 
+const VERIFIED_TOOLS = new Set([
+  "deepseek-v4.1-flash", "deepseek-v4.1-flash:fast", "kimi-k3.1-pro:standard", "kimi-k3.1-pro:fast",
+  "glm-5.3", "glm-5.3:fast", "glm-5.3-flash", "glm-5.3-flash:fast",
+  "minimax-m3.1-flash", "minimax-m3.1-flash:fast",
+]);
 
-const VERIFIED_TOOLS = new Set(Object.keys(PROFILES));
+/** Honor Retry-After with the same 5-second cap as the sibling providers. */
+export function retryDelayMs(attempt: number, retryAfter: string | null = null): number {
+  if (retryAfter) {
+    const seconds = Number(retryAfter);
+    if (Number.isFinite(seconds) && seconds >= 0) return Math.min(5_000, seconds * 1_000);
+    const date = Date.parse(retryAfter);
+    if (Number.isFinite(date)) return Math.max(0, Math.min(5_000, date - Date.now()));
+  }
+  return Math.min(2_000, 250 * 2 ** Math.max(0, attempt));
+}
 
 export function record(value: unknown): Record<string, unknown> | undefined {
   return value !== null && typeof value === "object" && !Array.isArray(value)
@@ -118,7 +134,7 @@ export async function fetchCatalog(apiKey: string, signal?: AbortSignal, fetcher
       await response.body?.cancel();
       await new Promise<void>((resolve, reject) => {
         const abort = (): void => { clearTimeout(timer); reject(combined.reason); };
-        const timer = setTimeout(() => { combined.removeEventListener("abort", abort); resolve(); }, 250 * 2 ** attempt);
+        const timer = setTimeout(() => { combined.removeEventListener("abort", abort); resolve(); }, retryDelayMs(attempt, response.headers.get("retry-after")));
         combined.addEventListener("abort", abort, { once: true });
         if (combined.aborted) abort();
       });
